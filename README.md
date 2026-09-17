@@ -1,23 +1,34 @@
 # My-concert-tracker
 
-# 📁 `/public` Folder Documentation
+# `/lab2` Folder Documentation
+
+This folder contains all the JavaScripts files.
+
+# `/lab2/public` Folder Documentation
 
 This folder contains all the static files (front-end HTML/CSS/JS) that make up the interface of the **Concert Tracker / My Music** application.
 
-## 📂 File Structure
-public/
-├── style.css # Global styles and UI theme
-├── img/ # Graphic assets (cursors, photos, icons)
-├── index.html # Home & Recommendations
-├── pf.html # User Profile & History
-├── add.html # Concert submission form
-├── stat.html # Stats & Metrics
-├── about.html # About & Gallery
-├── login.html # Login
-└── admin.html # Admin dashboard
+## File Structure
 
+web_proj/lab2/
+├── data/                        
+├── public/                      
+│   ├── style.css            
+│   ├── img/                     
+│   ├── index.html               
+│   ├── pf.html                  
+│   ├── add.html                 
+│   ├── stat.html                
+│   ├── about.html               
+│   ├── login.html               
+│   └── admin.html               
+├── audit.js                     
+├── authentificationRutes.js     
+├── createHash.js                
+├── password.js                 
+└── server.js                
 
-## 🎨 Design & Style (`style.css`)
+## Design & Style (`style.css`)
 
 - **Night theme**: Dark background (`#050b2e` / `#101a4b`) with a pink/fuchsia accent color (`#ff4fa3`).
 - **Typography**: Poppins via Google Fonts.
@@ -27,7 +38,7 @@ public/
   - Responsive grids (`.cards-grid`) for laying out artist/album cards.
   - Styled forms (`.card-form`) with hover animations on buttons (`.btn`, `.gradient-btn`).
 
-## 📄 Pages & Associated JavaScript
+## Pages & Associated JavaScript
 
 ### 1. `index.html` — Home & Recommendations
 
