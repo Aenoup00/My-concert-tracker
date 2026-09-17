@@ -283,7 +283,7 @@ async function toggleBlockUser(userId, currentStatus) {
 }
 ```
 
-## 🛠️ Consumed API Routes
+## Consumed API Routes
 
 | Endpoint | Method | Front-end Usage |
 |---|---|---|
@@ -296,3 +296,50 @@ async function toggleBlockUser(userId, currentStatus) {
 | `/api/admin/users` | GET | User management (`admin.html`) |
 | `/api/admin/toggle-block` | POST | Account moderation (`admin.html`) |
 | `/api/admin/audit-log` | GET | Display audit logs (`admin.html`) |
+
+# 📊 `/data` Folder — JSON File Structure
+
+This document describes the structure and fields of the 4 JSON files used to store the application's data.
+
+## `sessions.json` — User Account Management
+
+This file is an array of objects representing registered users. It is used for authentication and access rights.
+
+- **`username`** (String): The user's unique login identifier (e.g. `"Aenlpb"`).
+- **`name`** (String): The person's full name or display first name (e.g. `"Aénor"`).
+- **`password`** (String): The password stored as a secure SHA-256 hash.
+- **`admin`** (Boolean): Defines privileges. If `true`, the user has access to the `/admin.html` panel.
+- **`isBlocked`** (Boolean, optional): Indicates whether the account has been locked by an administrator (`true`/`false`).
+
+## `user_concerts.json` — Concert History & Wishlist
+
+This file is an array of objects where each entry groups a user's music data into two sub-arrays (`past` and `future`).
+
+- **`username`** (String): The identifier of the user the list belongs to.
+- **`past`** (Array of objects): The list of previously attended events.
+  - **`artist`** (String): Name of the artist or band.
+  - **`date`** (String): Concert date in ISO format (`YYYY-MM-DD`).
+  - **`location`** (String): Venue or festival name.
+  - **`rating`** (String): Rating given to the performance (from 1 to 10).
+  - **`eventType`** (String, optional): Type of event (`"concert"` or `"festival"`).
+- **`future`** (Array of objects): The list of upcoming concerts/tracks.
+  - **`artist`** (String): Name of the artist to see.
+  - **`song`** (String): Title of an associated song.
+
+## `recommendations.json` — Shared Recommendations
+
+This file is an array of objects storing recommendations submitted by users on the home page.
+
+- **`username`** (String): The author of the recommendation.
+- **`type`** (String): The recommended category (`"artist"` or `"album"`).
+- **`title`** (String): The name of the artist or the title of the recommended album.
+- **`reason`** (String): The justification or opinion left by the user.
+- **`date`** (String): Exact creation timestamp in ISO format.
+
+## `audit_log.json` — Security & Moderation Log
+
+This file is an array of objects recording the history of all key actions performed on the site, viewable by the administrator.
+
+- **`username`** (String): The user who triggered the action.
+- **`action`** (String): The recorded event (e.g. `"USER_LOGIN"`, `"BLOCKED_USER: Alexou"`, `"UNBLOCKED_USER: Alexou"`).
+- **`timestamp`** (String): The exact date and time of the event in full ISO format (`YYYY-MM-DDTHH:mm:ss.sssZ`).
