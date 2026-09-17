@@ -297,7 +297,7 @@ async function toggleBlockUser(userId, currentStatus) {
 | `/api/admin/toggle-block` | POST | Account moderation (`admin.html`) |
 | `/api/admin/audit-log` | GET | Display audit logs (`admin.html`) |
 
-# 📊 `/data` Folder — JSON File Structure
+# `/data` Folder — JSON File Structure
 
 This document describes the structure and fields of the 4 JSON files used to store the application's data.
 
